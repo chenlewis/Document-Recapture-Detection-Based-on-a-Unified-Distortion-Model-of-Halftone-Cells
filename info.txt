@@ -1,0 +1,26 @@
+
+
+# this info is from the Matlab Implementation
+
+# Printers
+'HP258': 1,
+'HP6222': 3,
+'HPM401N': 4,
+'KYOCERAM2530DN': 5,        # for in wild test (for test only), laser
+'HPM251N': 6,               # for in wild test (for test only), laser
+'CANONG3800': 8,           	# for in wild test (for test only), inkjet
+'HPM176': 9,               	# for in wild test (for test only), laser
+'FUJIP335D': 10,            # for in wild test (for test only), laser
+'HP2138': 11,            	  # for in wild test (for test only), inkjet
+
+# Scanners / Cameras
+EPSON850: 	1
+
+HP6222:		3
+
+
+inkjet_print_name_lst = {'hp258', 'hp6222', 'canong3800'};
+laser_print_name_lst = {'hpm401n', 'kyoceram2530dn', 'hpm251n', 'hpm176' ,'fujip335d'};
+
+inkjet_idx_lst = {1, 3, 8}
+laser_idx_lst = {4, 5, 6, 9, 10}
