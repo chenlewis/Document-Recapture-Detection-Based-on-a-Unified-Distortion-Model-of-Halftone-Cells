@@ -7,8 +7,8 @@ clear;
 %%
 databaseDirPath = '';
 %% process the genuine images
-genuineRefDataPath = [databaseDirPath 'data_1st_ref_45_73_224_1200_space_7.mat'];
-recaptureRefDataPath = [databaseDirPath 'data_1st_ref_45_73_224_1200_space_7.mat'];
+genuineRefDataPath = [databaseDirPath '1st_ref_45_73_1200_camera.mat'];
+recaptureRefDataPath = [databaseDirPath '1st_ref_45_73_1200_camera.mat'];
 halftoneDataAnalyzerObj1 = halftoneDataAnalyzerCam(genuineRefDataPath, recaptureRefDataPath, 3);
 halftoneDataAnalyzerObj1.sampleSize = 10;
 halftoneDataAnalyzerObj1 = halftoneDataAnalyzerObj1.checkSigmaAHistogram();
@@ -74,8 +74,8 @@ set(gcf, 'OuterPosition', [0 0 800 800], 'InnerPosition', [0 0 800 800], 'color'
 ylim([0 0.25]);
 %% process the recaptured 
 % close all;
-refDataPath = [databaseDirPath 'data_1st_ref_45_73_224_1200_space_7_cam.mat'];
-docDataPath = [databaseDirPath 'data_2nd_ref_45_73_224_1200_space_7_cam.mat'];
+refDataPath = [databaseDirPath '1st_ref_45_73_1200_camera.mat'];
+docDataPath = [databaseDirPath '2nd_ref_45_73_1200_camera.mat'];
 halftoneDataAnalyzerObj2 = halftoneDataAnalyzerCam(refDataPath, docDataPath, 4);
 halftoneDataAnalyzerObj2.sampleSize = 10;
 halftoneDataAnalyzerObj2.checkSigmaAHistogram();
@@ -735,7 +735,7 @@ figure;
 plot(proposed_fast_baseline_X, proposed_fast_baseline_Y, 'LineWidth', 5);
 hold on;
 plot(proposed_slow_baseline_X, proposed_slow_baseline_Y, 'LineWidth', 5);
-plot(proposed_double_baseline_X, proposed_double_baseline_Y, 'LineWidth', 5);
+plot(proposed_double_baseline_X, proposed_double_baseline_Y, ':', 'LineWidth', 5);
 xlabel('FPR'); ylabel('TPR');
 legend('proposed (horizontal)', 'proposed (vertical)', 'proposed (double)', 'Location', 'southeast');
 set(gca, 'FontName', 'times', 'FontSize', 25, 'FontSmoothing', 'on');  

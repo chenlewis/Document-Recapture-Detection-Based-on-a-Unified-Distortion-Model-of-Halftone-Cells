@@ -5,11 +5,10 @@ clc;
 set(0, 'DefaultFigureVisible', 'on');
 clear;
 %%
-% databaseDirPath = 'C:\Users\hzx19\NutstoreFiles\Databases\LPITest\';
 databaseDirPath = '';
 %% process the genuine images
-refDataPath = [databaseDirPath 'data_1st_ref_45_73_500_1200_space_7.mat'];
-docDataPath = [databaseDirPath 'data_1st_doc_45_73_500_1200_space_7.mat'];
+refDataPath = [databaseDirPath '1st_ref_45_73_1200_scanner.mat'];
+docDataPath = [databaseDirPath '1st_doc_45_73_1200_scanner.mat'];
 halftoneDataAnalyzerObj1 = halftoneDataAnalyzer(refDataPath, docDataPath, 1);
 halftoneDataAnalyzerObj1.sampleSize = 10;
 halftoneDataAnalyzerObj1 = halftoneDataAnalyzerObj1.checkSigmaAHistogram();
@@ -78,8 +77,8 @@ ylim([0 0.25]);
 
 %% process the recaptured 
 close all;
-refDataPath = [databaseDirPath 'data_1st_ref_45_73_500_1200_space_7.mat'];
-docDataPath = [databaseDirPath 'data_2nd_doc_45_73_500_1200_space_7.mat'];
+refDataPath = [databaseDirPath '1st_ref_45_73_1200_scanner.mat'];
+docDataPath = [databaseDirPath '2nd_doc_45_73_1200_scanner.mat'];
 halftoneDataAnalyzerObj2 = halftoneDataAnalyzer(refDataPath, docDataPath, 2);
 halftoneDataAnalyzerObj2.sampleSize = 10;
 halftoneDataAnalyzerObj2.checkSigmaAHistogram();
@@ -203,9 +202,7 @@ ylim([0 0.25]);
 %% initilize the experiment result
 close all
 experiment_result = [];
-
-% docIdxList = 1:22;
-docIdxList = 1:22;  docIdxList([12, 18]) = []; % for blksize = 500
+docIdxList = 1:22;
 %% collect genuine data for the baseline experiments
 % initialize the scores for document images
 PrinterScannerWidthGenuineScore = [];
@@ -391,8 +388,7 @@ for i = 1:length(device_info_list)
 end  
 
 %% collect recapture data for the baseline experiments
-% docIdxList = 1:22;
-docIdxList = 1:22;  docIdxList([12, 18]) = [];  % for blksize = 500
+docIdxList = 1:22;
 
 % initialize the scores
 PrinterScannerWidthRecaptureScore = [];
