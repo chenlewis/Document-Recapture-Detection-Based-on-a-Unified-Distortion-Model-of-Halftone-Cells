@@ -7,8 +7,8 @@ clear;
 %%
 databaseDirPath = '';
 %% process the genuine images
-refDataPath = ['data_1st_ref_45_73_224_1200_space_7.mat'];
-docDataPath = ['data_1st_doc_45_73_224_1200_space_7.mat'];
+refDataPath = ['1st_ref_45_73_1200_scanner.mat'];
+docDataPath = ['1st_doc_45_73_1200_scanner.mat'];
 halftoneDataAnalyzerObj1 = halftoneDataAnalyzer(refDataPath, docDataPath, 1);
 halftoneDataAnalyzerObj1.sampleSize = 10;
 halftoneDataAnalyzerObj1 = halftoneDataAnalyzerObj1.checkSigmaAHistogram();
@@ -18,8 +18,8 @@ halftoneDataAnalyzerObj1 = halftoneDataAnalyzerObj1.checkTStat();
 halftoneDataAnalyzerObj1 = halftoneDataAnalyzerObj1.testTStat();
 close all;
 %% process the recaptured 
-refDataPath = ['data_1st_ref_45_73_224_1200_space_7.mat'];
-docDataPath = ['data_2nd_doc_45_73_224_1200_space_7.mat'];
+refDataPath = ['1st_ref_45_73_1200_scanner.mat'];
+docDataPath = ['2nd_doc_45_73_1200_scanner.mat'];
 halftoneDataAnalyzerObj2 = halftoneDataAnalyzer(refDataPath, docDataPath, 2);
 halftoneDataAnalyzerObj2.sampleSize = 10;
 halftoneDataAnalyzerObj2.checkSigmaAHistogram();
@@ -528,8 +528,8 @@ disp(['proposed AUC inkjet realistic slow: ', num2str(proposed_slow_realistic_in
 
 % double direction                  
 [proposed_double_realistic_X, ...
-  proposed_double_realistic_Y, ~, ...
-  proposed_double_realistic_AUC] = ...
+ proposed_double_realistic_Y, ~, ...
+ proposed_double_realistic_AUC] = ...
     perfcurve(ScannerWidthDoubleLabels, [ScannerWidthGenuineDoubleScore(:, 6); ScannerWidthRecaptureDoubleScore(:, 6)], 1);
 experiment_result = [experiment_result proposed_fast_realistic_AUC proposed_slow_realistic_AUC proposed_double_realistic_AUC];
 

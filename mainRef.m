@@ -7,17 +7,17 @@ warning('on','all');
 set(0, 'DefaultFigureVisible', 'on');
 %% read in captured images
 halftoneAngle = 45;
-imgBlkSize = 224;        % the block size of the image
-cellSize = 12;           % the sampled cell size
-clusterErrorThres = 12;  % initial value is 21
+imgBlkSize = 224;         % the block size of the image
+cellSize = 12;            % the sampled cell size (depends on LPI, PPI, and angle)
+clusterErrorThres = 12;   % initial value is 21 (same as the cellsize)
 finalPPI = 1200;
-numPeaks = 7;
+numPeaks = 7;             % it is 5 for 600 ppi, otherwise it is 7
 
-minNumRows = 5;         % initial value is 5
-numKmeanTrials = 20;    % 
+minNumRows = 5;           % initial value is 5
+numKmeanTrials = 20;      % 
 
-scanned_halftone_dir_name = ['D:\Databases\HalftoneImageDatabase\scanned\ps_ht_ref_45_73_600_1200_crop_224\'];
-dataFileName = 'data_1st_ref_45_73_224_1200_space_7.mat';
+scanned_halftone_dir_name = 'ImageDatabaseProposed\ps_ht_ref_45_73_600_1200_crop_224\';
+dataFileName = '1st_ref_45_73_1200_scanner.mat';
 % remove the invalid items from the directory
 delete([scanned_halftone_dir_name '\.*']);
 delete([scanned_halftone_dir_name 'desktop.ini']);
@@ -25,7 +25,6 @@ delete([scanned_halftone_dir_name 'Thumbs.db']);
 % do not include directory or hidden files
 scanned_halftone_dir = dir(scanned_halftone_dir_name);
 scanned_halftone_dir([scanned_halftone_dir.isdir]) = [];
-
 %% read in existing data_collection
 if (exist(dataFileName, 'file') == 2)
   load(dataFileName, 'data_collection');
