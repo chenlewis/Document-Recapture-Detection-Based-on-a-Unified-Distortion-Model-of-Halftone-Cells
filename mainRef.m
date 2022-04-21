@@ -18,6 +18,7 @@ numKmeanTrials = 20;      %
 
 scanned_halftone_dir_name = 'ImageDatabaseProposed\ps_ht_ref_45_73_600_1200_crop_224\';
 dataFileName = '1st_ref_45_73_1200_scanner.mat';
+
 % remove the invalid items from the directory
 delete([scanned_halftone_dir_name '\.*']);
 delete([scanned_halftone_dir_name 'desktop.ini']);
